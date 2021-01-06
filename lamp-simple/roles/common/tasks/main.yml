@@ -9,10 +9,10 @@
 - name: Install common dependencies
   package:
     name: "{{ item }}"
-    state: installed
+    state: latest
   with_items:
-    - python-semanage
-    - python-selinux
+    - libsemanage1
+    - libselinux1
     - firewalld
 
 - name: Configure ntp file
@@ -24,7 +24,7 @@
 
 - name: Start the ntp service
   service:
-    name: ntpd
+    name: ntp
     state: started
     enabled: yes
   tags: ntp
