@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  name: install jboss standalone
+  roles:
+    - jboss-standalone
