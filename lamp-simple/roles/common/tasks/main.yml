@@ -1,0 +1,30 @@
+---
+
+- name: Install ntp
+  package:
+    name: ntp
+    state: present
+  tags: ntp
+
+- name: Install common dependencies
+  package:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - python-semanage
+    - python-selinux
+    - firewalld
+
+- name: Configure ntp file
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  tags: ntp
+  notify: restart ntp
+
+- name: Start the ntp service
+  service:
+    name: ntpd
+    state: started
+    enabled: yes
+  tags: ntp
