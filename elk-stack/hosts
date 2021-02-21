@@ -1,0 +1,13 @@
+[es-servers]
+localhost ansible_connection=local
+
+[kb-servers]
+localhost ansible_connection=local
+
+[ls-servers]
+localhost ansible_connection=local
+
+[fb-servers]
+10.91.23.233
+10.91.23.234
+10.91.23.235

@@ -1,0 +1,12 @@
+---
+
+- name: Add Elasticsearch GPG key
+  rpm_key:
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+
+- name: Add Elasticsearch repository
+  template:
+    src: elasticsearch.repo.js
+    dest: /etc/yum.repos.d/elasticsearch.repo
+    mode: 0644
