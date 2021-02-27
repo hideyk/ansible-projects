@@ -1,11 +1,11 @@
 ---
 # This playbook deploys ELK stack to nodes and Filebeat to application servers
 
-- name: Configure and deploy Elasticsearch nodes
-  hosts: es-servers
-  remote_user: root
-  roles:
-    - elasticsearch
+#- name: Configure and deploy Elasticsearch nodes
+#  hosts: es-servers
+#  remote_user: root
+#  roles:
+#    - elasticsearch
 
 - name: Configure and deploy Kibana nodes
   hosts: kb-servers
@@ -15,12 +15,12 @@
 
 - name: Configure and deploy Logstash nodes
   hosts: ls-servers
-  remote_user: root
+  #remote_user: root
   roles:
     - logstash
 
-- name: Configure and deploy Filebeat on application nodes
-  hosts: fb-servers
-  remote_user: root
-  roles:
-    - filebeat
+      #- name: Configure and deploy Filebeat on application nodes
+      #  hosts: fb-servers
+      #  remote_user: root
+      #  roles:
+      #    - filebeat
