@@ -1,13 +1,10 @@
 [es-servers]
-localhost ansible_connection=local
+hidey@192.168.100.5
 
 [kb-servers]
-localhost ansible_connection=local
+192.168.100.5
 
 [ls-servers]
-localhost ansible_connection=local
+192.168.100.5
 
 [fb-servers]
-10.91.23.233
-10.91.23.234
-10.91.23.235

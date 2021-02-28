@@ -1,26 +1,26 @@
 ---
 
-- name: Install Java 1.7 and some basic dependencies
-  package:
+- name: Install Java 1.8 and some basic dependencies
+  apt:
     name: "{{ item }}"
     state: present
+    update_cache: yes
   with_items:
     - unzip
-    - openjdk-8-jdk
-    - python-selinux
-    - python-semanage
+    - default-jdk 
 
 - name: Download JBoss from jboss.org
   get_url:
-    url: https://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
-    dest: /opt/jboss-as-7.1.1.Final.zip
+    url: https://download.jboss.org/wildfly/22.0.1.Final/wildfly-22.0.1.Final.zip
+    dest: /opt/wildfly-22.0.1.Final.zip
 
 - name: Extract archive
   unarchive:
-    dest: /usr/share
-    src: /opt/jboss-as-7.1.1.Final.zip
-    creates: /usr/share/jboss-as
+    dest: /opt/
+    src: /opt/wildfly-22.0.1.Final.zip
     copy: no
+
+
 
 - name: Rename install directory
   template:
@@ -36,5 +36,5 @@
   user:
     name: jboss
     group: jboss
-    home: /usr/share/jboss-as
+    home: /opt/jboss
 
